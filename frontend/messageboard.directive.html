@@ -1,0 +1,63 @@
+<div layout="column" layout-padding ng-cloak>
+
+    <div layout="row" layout-padding>
+
+        <!-- display -->
+        <md-switch ng-model="boardCtl.boardIsOn" aria-label="Turn on/off" ng-change="boardCtl.turnOff()">
+            <span ng-if="boardCtl.boardIsOn">Turn off display</span>
+            <span ng-if="!boardCtl.boardIsOn">Turn on display</span>
+        </md-switch>
+
+        <!-- duration -->
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Message display cycling time (in seconds)</label>
+            <input ng-model="boardCtl.duration" type="number" min="5" max="60">
+        </md-input-container>
+
+        <!-- speed -->
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Scrolling message speed</label>
+            <md-select ng-model="boardCtl.speed">
+                <md-option value="fast">Fast</md-option>
+                <md-option value="normal">Normal</md-option>
+                <md-option value="slow">Slow</md-option>
+            </md-select>
+        </md-input-container>
+
+        <!-- save button -->
+        <div>
+            <md-button ng-click="boardCtl.saveConfiguration()" class="md-raised md-accent">Save changes</md-button>
+        </div>
+    </div>
+
+    <!-- messages list -->
+    <md-table-container>
+    <table md-table>
+        <thead md-head md-order="columnOrder">
+            <tr md-row>
+                <th md-column md-order-by="message">Message</th>
+                <th md-column md-order-by="message">Start</th>
+                <th md-column md-order-by="message">End</th>
+                <th md-column md-order-by="message">Actions</th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row md-auto-select ng-repeat="msg in boardCtl.messages | orderBy:columnOrder">
+                <td md-cell>{{msg.message}}</td>
+                <td md-cell>{{msg.start | hrDatetime}}</td>
+                <td md-cell>{{msg.end | hrDatetime}}</td>
+                <td md-cell>
+                    <md-button class="md-icon-button" ng-click="boardCtl.deleteMessage(msg)" aria-label="Delete">
+                        <md-tooltip md-direction="bottom">Delete message</md-tooltip>
+                        <md-icon md-svg-icon="delete"></md-icon>
+                    </md-button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot md-foot>
+            <tr md-row></tr>
+        </tfoot>
+    </md-table-container>
+
+</div>
+

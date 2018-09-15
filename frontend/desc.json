@@ -1,0 +1,14 @@
+{
+    "icon": "counter",
+    "system": {
+        "widgets": {
+            "js": ["messageboard.widget.js"],
+            "html": ["messageboard.widget.html"]
+        },
+        "services": []
+    },
+    "config": {
+        "js": ["messageboard.directive.js", "messageboard.service.js"],
+        "html": ["messageboard.directive.html", "addMessage.directive.html"]
+    }
+}

@@ -1,0 +1,60 @@
+<md-dialog flex="60">
+
+    <form ng-cloak>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Message board configuration</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="boardCtl.cancelDialog()" aria-label="Close dialog">
+                    <md-icon md-svg-icon="close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <!-- message -->
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Message</label>
+                    <input ng-model="boardCtl.message">
+                </md-input-container>
+
+                <!-- start -->
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Start date</label>
+                        <md-datepicker ng-model="boardCtl.startDate" md-hide-icons="calendar" name="startDate" md-placeholder="Start date" required></md-datepicker>
+                    </md-input-container> 
+                    <md-input-container class="md-block"  flex-gt-sm>
+                        <label>Start time</label>
+                        <input ng-model="boardCtl.startTime" placeholder="00:00" ng-pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/" required></md-input>
+                    </md-input-container>
+                </div>
+
+                <!-- end -->
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>End date</label>
+                        <md-datepicker ng-model="boardCtl.endDate" md-hide-icons="calendar" name="endDate" md-placeholder="End date" required></md-datepicker>
+                    </md-input-container> 
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>End time</label>
+                        <input ng-model="boardCtl.endTime" placeholder="00:00" ng-pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/" required></md-input>
+                    </md-input-container>
+                </div>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="boardCtl.closeDialog()" aria-label="Close dialog">
+                <span>Add message</span>
+            </md-button>
+        </md-dialog-actions>
+
+    </form>
+
+</md-dialog>
