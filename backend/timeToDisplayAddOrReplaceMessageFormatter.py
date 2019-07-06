@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from raspiot.events.formatter import Formatter
-from raspiot.events.displayAddOrReplaceMessageProfile import DisplayAddOrReplaceMessageProfile
+from raspiot.libs.internals.formatter import Formatter
+from raspiot.profiles.displayAddOrReplaceMessageProfile import DisplayAddOrReplaceMessageProfile
 
 class TimeToDisplayAddOrReplaceMessageFormatter(Formatter):
     """
